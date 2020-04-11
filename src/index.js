@@ -1,35 +1,23 @@
 const express = require('express');
-
 const app = express();
-
 app.use(express.json());
 
+const techs = [];
+
 app.get('/tech', (req, res) => {
-  return res.json([
-    'react', 'react native'
-  ]);
+  return res.json(techs);
 });
 
 app.post('/tech', (req, res) => {
-  const params = req.body;
-
-  console.log(params);  
-
-  return res.json([
-    'react', 'react native', 'node'
-  ]);
+  return res.json();
 });
 
 app.put('/tech/:id', (req, res) => {
-  return res.json([
-    'reactee', 'react native', 'node'
-  ]);
+  return res.json();
 });
 
 app.delete('/tech/:id', (req, res) => {
-  return res.json([
-    'react', 'react native'
-  ]);
+  return res.json();
 });
 
 
