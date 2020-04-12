@@ -5,6 +5,18 @@ app.use(express.json());
 
 const techs = [];
 
+function logRequests(req, res, next) {
+  const { method, url } = req;
+
+  const logLabel = `[${method.toUpperCase()}] ${url}`;
+
+  console.log(logLabel);
+
+  return next();
+}
+
+app.use(logRequests);
+
 app.get('/tech', (req, res) => {
   const { search } = req.query;
 
